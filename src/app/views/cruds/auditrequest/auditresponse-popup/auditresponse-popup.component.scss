@@ -1,0 +1,32 @@
+.parntfirst, .parnt{
+	margin-bottom: 10px;
+    font-size: 18px;
+	width:100%;  
+	line-height: 0.5;
+    text-align: center;
+}
+.parnt{
+	margin-top:15px;
+}
+.parntfirst span, .parnt span {
+  display: inline-block;
+  position: relative;  
+}
+.parntfirst span:before, .parnt span:before,
+.parntfirst span:after, .parnt span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  top: 0;
+  width: 118px;
+}
+.parntfirst span:before, .parnt span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.parntfirst span:after, .parnt span:after {
+  left: 100%;
+  margin-left: 15px;
+  }

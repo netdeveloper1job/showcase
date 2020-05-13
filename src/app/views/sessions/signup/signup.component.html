@@ -1,0 +1,133 @@
+<div class="page-wrap height-100 mat-bg-primary">
+  <div class="session-form-hold">
+    <mat-progress-bar mode="determinate" class="session-progress"></mat-progress-bar>
+    <mat-card>
+      <mat-card-content>
+        <div class="text-center pb-1">
+          <img src="assets/images/smallLogo.png" alt="" class="mb-05">
+          <p class="text-muted m-0">Sign up to use our service</p>
+        </div>
+        <form [formGroup]="signupForm"  (ngSubmit)="signup()">
+		<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+		<div fxFlex="100" class="pr-1">
+			<mat-form-field class="full-width">
+			  <mat-label>Select an Usertype</mat-label>
+			  <mat-select [(value)]="selected" name="Usertype" [formControl]="signupForm.controls['Usertype']" (selectionChange)="changeusertype($event)">
+				<mat-option>--Select--</mat-option>
+				<mat-option value="Member">Member</mat-option>
+				<mat-option value="Organization">Organization</mat-option>
+				<mat-option value="Auditor">Auditor</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			<small *ngIf="signupForm.controls['Usertype'].hasError('required') && signupForm.controls['Usertype'].touched" class="form-error-msg">Usertype is required.</small>
+		</div>
+		<div fxFlex="100" class="pr-1" *ngIf="selected=='Auditor'">
+			<mat-form-field class="full-width">
+              <input
+                matInput
+                type="text"
+                name="Refferal"
+				required
+				[formControl]="signupForm.controls['Refferal']"
+                placeholder="Your Organization GUID"
+                value=" ">
+            </mat-form-field>
+			<small *ngIf="signupForm.controls['Refferal'].hasError('required') && signupForm.controls['Refferal'].touched" class="form-error-msg">GUID is required.</small>
+		</div>
+		<div fxFlex="50" class="pr-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="text"
+                name="Fname"
+                [formControl]="signupForm.controls['Fname']"
+                placeholder="First Name"
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="signupForm.controls['Fname'].hasError('required') && signupForm.controls['Fname'].touched" 
+              class="form-error-msg"> First name is required </small>             
+          </div> 
+		  <div fxFlex="50" class="pr-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="text"
+                name="Lname"
+                [formControl]="signupForm.controls['Lname']"
+                placeholder="Last Name"
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="signupForm.controls['Lname'].hasError('required') && signupForm.controls['Lname'].touched" 
+              class="form-error-msg"> Last name is required </small>             
+          </div>
+          <div fxFlex="100" class="pr-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="Email"
+                name="Email"
+                [formControl]="signupForm.controls['Email']"
+                placeholder="Your Email"
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="signupForm.controls['Email'].hasError('required') && signupForm.controls['Email'].touched" 
+              class="form-error-msg"> Email is required </small>
+
+              <small 
+                *ngIf="signupForm.controls['Email'].hasError('email') && signupForm.controls['Email'].touched" 
+                class="form-error-msg"> Invaild email address </small>
+          </div>
+
+          <div fxFlex="50" class="pr-1">
+            <mat-form-field class="full-width">
+              <input 
+                type="password"
+                name="password"
+                matInput
+                [formControl]="signupForm.controls['password']"
+                placeholder="Password" 
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched" 
+              class="form-error-msg"> Password is required </small>
+          </div>
+          
+          <div fxFlex="50" class="pr-1">
+            <mat-form-field class="full-width">
+              <input
+                type="password"
+                name="confirmPassword"
+                matInput
+                [formControl]="signupForm.controls['confirmPassword']"
+                placeholder="Confirm Password"
+                value="">
+            </mat-form-field>
+            <small *ngIf="signupForm.controls['confirmPassword'].hasError('required') && signupForm.controls['confirmPassword'].touched" class="form-error-msg">Confirm password is required.</small>
+            <small *ngIf="signupForm.controls['confirmPassword'].hasError('equalTo')" class="form-error-msg">Passwords do not math.</small>
+          </div>          
+          <div fxFlex="100" class="pb-1">
+            <mat-checkbox
+              name="agreed"
+              [formControl]="signupForm.controls['agreed']"
+              class="pb-1">I have read and agree to the terms of service.</mat-checkbox>
+
+              <small 
+                *ngIf="signupForm.controls['agreed'].hasError('agreed') && signupForm.controls['agreed'].touched" 
+                class="form-error-msg"> You must agree to the terms and conditions </small>
+          </div>
+			<div fxFlex="100">
+          <button mat-raised-button class="mat-primary full-width mb-1" [disabled]="signupForm.invalid">Sign up</button>
+		  </div>
+          <div fxFlex="100" class="text-center">
+            <a [routerLink]="'/sessions/signin'" class="mat-primary text-center full-width">Sign in to existing account</a>
+          </div>
+		  </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

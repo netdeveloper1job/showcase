@@ -1,0 +1,516 @@
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+
+	<div fxFlex="100" fxFlex.gt-xs="99">
+	
+		<mat-card class="p-0">
+		<!-- 	<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text">
+					<span>Basic details</span>
+				</div>
+				<mat-divider></mat-divider>
+			</mat-card-title> -->
+			<mat-card-content class="m-1">
+				<!-- <div class="main-info">
+					<h3 class="title">{{parkingdetails?.Name}}</h3>
+					<p class="text-muted p-line">{{parkingdetails?.Address}}</p>
+					<p class="text-muted p-line">
+						<strong>Telephone:</strong> {{parkingdetails?.Telephone}}</p>
+					<p class="text-muted p-line">
+						<strong>Email:</strong> {{parkingdetails?.Email}}
+					</p>
+					<p class="text-muted p-line">
+						<strong>Opening Hours:</strong> Open 24 hours
+					</p>
+                </div> -->
+				<div fxFlex="100" fxFlex.gt-xs="99">
+
+					<mat-tab-group>
+						<mat-tab label="Primary">
+							<form [formGroup]="itemForm" (submit)="saveData()">
+								<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="mt-1">
+								<div fxFlex="33.3" class="pr-1" *ngIf="usertype=='Admin'">
+										<mat-form-field class="full-width">
+										  <mat-label> Select Members</mat-label>
+										  <mat-select  [(value)]="selecteduser" name="user_ID" formControlName="user_ID">
+											 <mat-option *ngFor="let users of item" [value]="users?.ID">{{users?.Fname}} - {{users?.Usertype}}</mat-option>
+										  </mat-select>
+										</mat-form-field>
+										
+									</div>
+									<div fxFlex="33.3" class="pr-1" *ngIf="usertype=='Member'">
+										 <mat-form-field class="full-width">
+										 <mat-label> Select Members</mat-label>
+										 <mat-select  disabled [(value)]="selecteduser" name="user_ID" formControlName="user_ID">
+										 <mat-option *ngFor="let users of itemByID" [value]="users?.ID">{{users?.Fname}} - {{users?.Usertype}}</mat-option>
+										</mat-select>
+										</mat-form-field>
+										
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="parkingname"
+											formControlName="parkingname"
+											placeholder="Parking Name">
+										</mat-form-field>
+									</div>
+									
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="website"
+											formControlName="website"
+											placeholder="Website">
+										</mat-form-field>
+									</div>								
+									<div fxFlex="99.9"  class="pr-1">
+										<mat-label>Description</mat-label>	
+											
+											<ckeditor  [editor]="Editor"   formControlName="description" ></ckeditor>
+										
+										   
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field  class="full-width">
+											<input
+											matInput
+											type="text"
+											name="telephone"
+											formControlName="telephone"
+											placeholder="Telephone">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field  class="full-width">
+											<input
+											matInput
+											type="text"
+											name="fax"
+											formControlName="fax"
+											placeholder="Fax">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field  class="full-width">
+											<input
+											matInput
+											type="text"
+											name="openinghour"
+											formControlName="openinghour"
+											placeholder="Opening hour">
+										</mat-form-field>
+									</div>
+									<div fxFlex="50"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="ContactPerson"
+											formControlName="ContactPerson"
+											placeholder="ContactPerson">
+										</mat-form-field>
+									</div>
+									<div fxFlex="50"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="Email"
+											formControlName="parkingEmail"
+											placeholder="Email">
+										</mat-form-field>
+									</div>
+									<!-- <div fxFlex="33.3"  class="pr-1"> -->
+										<!-- <mat-form-field class="full-width"> -->
+										  <!-- <mat-label>Select Country</mat-label>									  -->
+											<!-- <mat-select formControlName="Country" name="Country"  (selectionChange)="CountryChane($event)" [value]="parkingdetails?.countryid"> -->
+											
+												<!-- <mat-option *ngFor="let country of countryArray" value="{{country.ID}}"> -->
+													<!-- {{country.country}} -->
+												<!-- </mat-option> -->
+											<!-- </mat-select> -->
+										<!-- </mat-form-field> -->
+									<!-- </div> -->
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Select Country</mat-label>									 
+											<mat-select formControlName="Country" name="Country" (selectionChange)="CountryChane($event)" [value]="parkingdetails?.countryid">
+												<mat-option *ngFor="let country of countryArray" [value]="country.ID">
+												{{country.country}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Select State</mat-label>									 
+											<mat-select formControlName="State" name="State" (selectionChange)="StateChange($event)" [value]="parkingdetails?.stateid">
+												<mat-option *ngFor="let states of stateDataarray" [value]="states.ID">
+												{{states.StateName}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Select City</mat-label>									 
+											<mat-select formControlName="City" name="City" (selectionChange)="CityChange($event)" [value]="parkingdetails?.cityID">
+												<mat-option *ngFor="let cities of cityDataArray" [value]="cities.ID">
+												{{cities.CityName}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div>
+									
+									
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Select Postcode</mat-label>									 
+											<mat-select formControlName="PIN" name="PIN" [value]="parkingdetails?.PIN">
+												<mat-option *ngFor="let postcodes of PostCodeData" [value]="postcodes.ID">
+													{{postcodes.PostCode}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div>
+								<!--<div fxFlex="33.3"  class="pr-1"> -->
+										<!-- <mat-form-field class="full-width"> -->
+											<!-- <input -->
+											<!-- matInput -->
+											<!-- type="text" -->
+											<!-- name="PIN" -->
+											<!-- formControlName="PIN" -->
+											<!-- placeholder="PIN"> -->
+										<!-- </mat-form-field> -->
+									 <!-- </div>  -->
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="RoadName"
+											formControlName="RoadName"
+											placeholder="Road Name Or Number">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="Highway"
+											formControlName="highway"
+											placeholder="Highway">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="Exit"
+											formControlName="exit"
+											placeholder="Exit">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="AccessDetails"
+											formControlName="AccessDetails"
+											placeholder="Access Details">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="Latitude"
+											formControlName="Latitude"
+											placeholder="Latitude">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="Longitude"
+											formControlName="Longitude"
+											placeholder="Longitude">
+										</mat-form-field>
+									</div>
+									<!-- <div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="ParkingType"
+											formControlName="ParkingType"
+											placeholder="Parking Type">
+										</mat-form-field>
+									</div>	 -->								
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Parking Types</mat-label>									 
+											<mat-select formControlName="ParkingType" name="ParkingType">
+												<mat-option *ngFor="let types of parkingtypes" [value]="types">
+													{{types}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div> 
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+										  <mat-label>Parking Types1</mat-label>									 
+											<mat-select formControlName="ParkingType1" name="ParkingType1">
+												<mat-option *ngFor="let types of parkingtypes1" [value]="types">
+													{{types}}
+												</mat-option>
+											</mat-select>
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="CurrencyAccepted"
+											formControlName="CurrencyAccepted"
+											placeholder="Currency Accepted">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="TarrifPerDay"
+											formControlName="TarrifPerDay"
+											placeholder="Tarrif Per Day">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+										<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="TarrifPerhour"
+											formControlName="TarrifPerhour"
+											placeholder="Tarrif Per Hour">
+										</mat-form-field>
+									</div>
+									<div fxFlex="33.3"  class="pr-1">
+									
+										<mat-form-field class="full-width">
+											<mat-label>Security Rating</mat-label>
+											<mat-select formControlName="SecurityRating" name="SecurityRating">
+												<mat-option *ngFor="let security of securityRatings" [value]="security">
+													{{security}}
+												</mat-option>
+											</mat-select>
+											</mat-form-field>
+									
+									</div>
+									<div fxFlex="29.3"  class="pr-1 " style="flex: none !important;">
+									<div class=" color-default" >
+									
+										
+										<star-rating-comp [labelText]="'Star Rating'" [labelPosition]="'top'" [starType]="'svg'" 
+										[staticColor]="'ok'"
+											[rating]="2.63"
+											[labelVisible]="false"
+											
+											[color]="'yellow'"
+											(onClick)="clickStarRating($event)"
+											formControlName="StarRating" name="StarRating"></star-rating-comp>
+											
+											
+										</div>
+
+									</div>
+									 <div fxFlex="20"  class="pt-1 pr-1">
+										  <mat-slide-toggle formControlName="Status" >Status</mat-slide-toggle>
+										</div>
+	                                  <!-- </div> -->
+									<!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="mt-1"> -->
+									<div fxFlex="99.9"  class="pr-1">
+									<h5 class="urlheadtitle">Social media</h5>
+									</div>
+									<div fxFlex="99.9"  class="pr-1">
+									<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="fburl"
+											formControlName="fburl"
+											placeholder="Facebook url"
+											>
+										</mat-form-field></div>
+                                 <div fxFlex="99.9"  class="pr-1">
+									<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="LinkedInurl"
+											formControlName="LinkedInurl"
+											placeholder="Linkedin url">
+									</mat-form-field>	</div>
+                               <div fxFlex="99.9"  class="pr-1">
+									
+									<mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="twitterurl"
+											formControlName="twitterrl"
+											placeholder="Twitter url"
+											>
+										
+									</mat-form-field>		</div>
+                              <div fxFlex="99.9"  class="pr-1">
+							  <mat-form-field class="full-width">
+											<input
+											matInput
+											type="text"
+											name="instaurl"
+											formControlName="instaurl"
+											placeholder="Instagram url"
+											>
+										</mat-form-field></div>		
+                                 	<div fxFlex="100"  class="pr-1 " style="padding-top:20px;">
+										<button mat-button color="primary" class="mat-raised-button mat-primary">Update</button>
+									 </div> 
+									</div>
+								<!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="mt-1">						 -->
+								 <!--</div>	--> 
+							</form>
+						</mat-tab>
+						<mat-tab label="Services">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>
+									<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center">
+										<div fxFlex="100" fxFlex.gt-xs="16" *ngFor="let parking of parkingservices; let i = index">
+											<input type="checkbox" [id]="i" (change)="addServiceTomatrix(parking)" [checked]="parking.colorfill"/>
+											<label [for]="i"><img [src]="imagepathurl+parking.ServiceLogo" /><small>{{parking.ServiceName}} </small></label>
+											<!-- <div class="image-style" [class.background]="parking.colorfill" (click)="addServiceTomatrix(parking)" [style.-webkit-mask-box-image]="'url('+ parking.ServiceLogo +')'"></div> -->
+										
+										</div> 
+									</div>
+								</mat-card-content>
+							</div>
+						</mat-tab>
+						<mat-tab label="Fuel Cards">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>		
+									<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center">
+										<div fxFlex="100" fxFlex.gt-xs="16" *ngFor="let fuelcards of parkingfuelcards; let i = index">
+											<input type="checkbox" [id]="i" (change)="addFuelCardsToParking(fuelcards)" [checked]="fuelcards.colorfill"/>
+											<label [for]="i"><img [src]="imagepathurl+fuelcards.FuelCardLogo" /><small>{{fuelcards.FuelCardName}} </small></label>									
+										</div> 
+									</div>
+								</mat-card-content>
+							</div>
+						</mat-tab>
+						<mat-tab label="Bank And Credit Cards">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>		
+									<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center">
+										<div fxFlex="100" fxFlex.gt-xs="16" *ngFor="let bankcards of parkingbankcards; let i = index">
+											<input type="checkbox" [id]="i" (change)="addBankCardsToParking(bankcards)" [checked]="bankcards.colorfill"/>
+											<label [for]="i"><img [src]="imagepathurl+bankcards.BankCardLogo" /><small>{{bankcards.BankCardName}} </small></label>
+										
+										</div> 
+									</div>
+								</mat-card-content>
+							</div>
+						</mat-tab>
+						<mat-tab label="Gas Stations">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>		
+									<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center">
+										<div fxFlex="100" fxFlex.gt-xs="16" *ngFor="let gasStations of parkinggasStations; let i = index">
+											<input type="checkbox" [id]="i" (change)="addGasStationToMatrix(gasStations)" [checked]="gasStations.colorfill"/>
+											<label [for]="i"><img [src]="imagepathurl+gasStations.Logo" /><small>{{gasStations.Name}} </small></label>
+										
+										</div> 
+									</div>
+								</mat-card-content>
+							</div>
+						</mat-tab>
+						
+						<mat-tab label="Service Level">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>		
+									<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center">
+										<div fxFlex="100" fxFlex.gt-xs="16" *ngFor="let serviceLevel of parkingservicelevel; let i = index">
+										
+											<input type="checkbox" [id]="i" (change)="addServiceLevelToMatrix(serviceLevel)" [checked]="serviceLevel.colorfill"/>
+											<label [for]="i"><img [src]="imagepathurl+serviceLevel.ServiceLevelLogo" /><small>{{serviceLevel.ServiceLevelName}} </small></label>
+										
+										</div> 
+									</div>
+								</mat-card-content>
+							</div>
+						</mat-tab>
+						
+						<mat-tab label="Gallery">
+							<div fxFlex="100" fxFlex.gt-xs="100">
+								<mat-card-content>	
+								<div *ngIf="imagepathurl" fxLayoutWrap="wrap" class=" row mt-1 ml-1 text-center1" style="display:flex">
+						 <div  coll="20"  *ngFor="let parkingGallery of parkingGalleryByID;let i=index " class="parent " >
+						
+						 
+							 <img *ngIf="imagepathurl" [src]="imagepathurl+parkingGallery.ImagePath" style="width:85%;height:85%;"/>
+							
+							 <span  *ngIf="imagepathurl" class=" material-icons close"   (click)="deleteimg(parkingGallery)"  >close</span>
+							 </div></div>
+							 <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 ml-1 text-center" style="display:flex">
+							 <div fxFlex="100"   class="pr-1 imageGallery">
+							  <!-- <img  class="close" src="assets/images/delete.jpg"  (click)="deleteimg(parkingGallery)"  /> -->
+							  
+								<img id="blah" *ngFor='let url of urls' [src]="url"  alt="your image"  (click)="fileselect()" class="GalleryImg" />
+								<input type='file' [formControl]="itemForm.controls['Imageupload']" name="Imageupload" id="Imageupload" style="display:block;" (change)="onSelectFile($event)" multiple/>
+								<!-- //<span id="spnFilePath"></span> -->
+								
+						    </div>
+						
+							 </div> 
+							
+							
+							</mat-card-content>
+							</div>
+							
+						</mat-tab>
+	
+					</mat-tab-group>
+				</div>
+			</mat-card-content>
+			
+		</mat-card>
+		
+	</div>	
+	
+										
+</div>
+
+<style>
+
+.rating.color-ok .star-container .star svg {
+    fill: #ffc058 !important;
+}
+.rating {
+   
+    justify-content: start;
+   
+}
+</style>
+

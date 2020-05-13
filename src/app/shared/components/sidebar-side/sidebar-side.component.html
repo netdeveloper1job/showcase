@@ -1,0 +1,86 @@
+<div class="sidebar-panel">
+  <div id="scroll-area" class="navigation-hold" fxLayout="column">
+    <!-- App Logo -->
+    <div class="branding default-bg">
+      <img src="assets/images/esp1.png" alt="" class="app-logo sidebarlogo" style="height:60px;">
+      <!-- Two different logos for dark and light themes -->
+      <!-- <img  -->
+      <!-- src="assets/images/smallLogo.png"  -->
+      <!-- alt=""  -->
+      <!-- class="app-logo-text" -->
+	  <!-- style="height: 60px;" -->
+      <!-- *ngIf="themeService.activatedTheme?.name?.indexOf('dark') !== -1"> -->
+      <!-- <img  -->
+      <!-- src="assets/images/smallLogo.png"  -->
+      <!-- alt=""  -->
+      <!-- class="app-logo-text" style="height: 60px;" -->
+      <!-- *ngIf="themeService.activatedTheme?.name?.indexOf('dark') === -1"> -->
+    </div>
+
+    <!-- Sidebar user -->
+    <div class="app-user">
+      <div class="app-user-photo">
+        <img src="assets/images/blank_user.jpg" alt="">
+      </div>
+      <span class="app-user-name mb-05">
+        <mat-icon class="icon-xs text-muted">lock</mat-icon> 
+        {{name}}
+      </span>
+      <!-- Small buttons -->
+      <div class="app-user-controls">
+        <!-- <button 
+        class="text-muted"
+        mat-icon-button 
+        mat-xs-button
+        [matMenuTriggerFor]="appUserMenu">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button 
+        class="text-muted"
+        mat-icon-button 
+        mat-xs-button
+        matTooltip="Inbox"
+        routerLink="/inbox">
+          <mat-icon>email</mat-icon>
+        </button>-->
+        <button 
+        class="text-muted"
+        mat-icon-button 
+        mat-xs-button
+        matTooltip="Sign Out"
+        routerLink="/sessions/signin">
+          <mat-icon>exit_to_app</mat-icon>
+        </button> 
+       <!--  <mat-menu #appUserMenu="matMenu">
+            <button mat-menu-item routerLink="/profile/overview">
+              <mat-icon>account_box</mat-icon>
+              <span>Profile</span>
+            </button>
+            <button mat-menu-item routerLink="/profile/settings">
+              <mat-icon>settings</mat-icon>
+              <span>Account Settings</span>
+            </button>
+            <button mat-menu-item routerLink="/calendar">
+              <mat-icon>date_range</mat-icon>
+              <span>Calendar</span>
+            </button>
+            <button mat-menu-item routerLink="/sessions/signin">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu> -->
+      </div>
+    </div>
+    <!-- Navigation -->
+    <app-sidenav [items]="menuItems" [hasIconMenu]="hasIconTypeMenuItem" [iconMenuTitle]="iconTypeMenuTitle"></app-sidenav>
+  </div>
+</div>
+
+<style>
+.sidebarlogo{
+    max-width: 65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>

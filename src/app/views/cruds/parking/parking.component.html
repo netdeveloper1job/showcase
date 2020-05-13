@@ -1,0 +1,133 @@
+<div class="m-333">
+  <!-- <span fxFlex></span> -->
+  <button mat-raised-button class="mb-05" color="primary" (click)="openPopUp({}, true)">Add Parking</button>
+  <input type='text' placeholder=' Search Name' class="form-control" (keyup)='updateFilter($event.target.value)' />
+</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="items"
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             <a  routerLink="/parkings/parking-detail/{{row?.ID}}"  style="color:blue">{{ row?.Name }}</a> 
+            </ng-template>
+          </ngx-datatable-column>
+         
+          <!-- <ngx-datatable-column name="Longitude" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.Longitude }} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Address" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Address }}
+            </ng-template>
+          </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Email" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.Email }} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Telephone" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.Telephone }} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Company" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.Company }} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+		   <ngx-datatable-column name="Postcode" [flexGrow]="1"> 
+            <ng-template let-row="row" ngx-datatable-cell-template> 
+               {{row?.PostCode}}
+             </ng-template> 
+			 
+           </ngx-datatable-column>
+		    <ngx-datatable-column name="City" [flexGrow]="1"> 
+            <ng-template let-row="row" ngx-datatable-cell-template> 
+               {{row?.CityName}}
+             </ng-template> 
+           </ngx-datatable-column>
+		    <ngx-datatable-column name="Highway " [flexGrow]="1"> 
+            <ng-template let-row="row" ngx-datatable-cell-template> 
+               {{row?.Highway}}
+             </ng-template> 
+           </ngx-datatable-column>
+		    <ngx-datatable-column name="Exit " [flexGrow]="1"> 
+            <ng-template let-row="row" ngx-datatable-cell-template> 
+               {{row?.Exits}}
+             </ng-template> 
+           </ngx-datatable-column>
+		   
+		    <ngx-datatable-column name="Status" [flexGrow]="1"> 
+            <ng-template let-row="row" ngx-datatable-cell-template> 
+		   <div fxFlex="20"  class="pt-1 pr-1"  >
+	       
+			   <mat-slide-toggle  [color]="color" [checked]="row?.Status == '1' ? true : false"  (change)="setValue(row,$event )" > </mat-slide-toggle>
+			   
+			</div>
+			</ng-template> 
+           </ngx-datatable-column>
+		   
+		   <!-- <ngx-datatable-column name="Status" [flexGrow]="1"> -->
+				<!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+				 <!-- <span [ngStyle]="{'color':row?.Status == 1  ? 'green' : 'red' }"> -->
+				<!-- <i class="material-icons"> -->
+				<!-- fiber_manual_record -->
+				<!-- </i> -->
+			  <!-- </span> -->
+				<!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+		   
+		  <!-- <ngx-datatable-column name="Audit Status" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.Status == 3 ? row?.Fname + row?.Lname +" Audited on "+ row?.created_at : "Not Audited"}} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="openPopUp(row)" matTooltip="Edit"><mat-icon>edit</mat-icon></button> -->
+			  <button mat-icon-button mat-sm-button color="primary" class="mr-1" routerLink="/manage/manage-details/{{row.ID}}" matTooltip="Edit"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button mat-sm-button color="warn" (click)="deleteItem(row)" matTooltip="Delete"><mat-icon>delete</mat-icon></button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>
+
+<style>
+:host /deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+background-color: green;
+}
+:host /deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+background-color: green;
+}
+:host /deep/ .mat-slide-toggle-bar {
+background-color: red;
+}
+:host /deep/ .mat-slide-toggle-thumb {
+background-color: red;
+}
+input.form-control {
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 38px;
+    background-color: white;
+    background-image: url('https://www.w3schools.com/css/searchicon.png');
+    background-position: 7px 7px;
+    background-repeat: no-repeat;
+    padding: 7px 24px 9px 38px;
+    transition: width 0.4s ease-in-out;
+    float: right;
+}
+</style>

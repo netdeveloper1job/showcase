@@ -1,0 +1,93 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+	
+	<div fxFlex="100"  class="pr-1">
+		<mat-form-field class="full-width">
+		  <mat-label>Select Level</mat-label>
+		  <mat-select name="Reporttype" [(value)]="selected" formControlName="Level">
+			<mat-option *ngFor="let level of data.levels" [value]="level.ID">{{level.Level}}</mat-option>
+			<!-- <mat-option value="Service Report">Service Report</mat-option> -->
+		  </mat-select>
+		</mat-form-field>
+    </div>
+	
+	<div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+		<textarea matInput placeholder="Question" formControlName="Question"></textarea>
+	  </mat-form-field>
+    </div>
+	
+	<div fxFlex="50"  class="pr-1">
+	  <!--<mat-form-field class="full-width">
+		<textarea matInput placeholder="Descriptive Answer" name="Descriptiveanswer" [formControl]="itemForm.controls['Descriptiveanswer']"></textarea>
+	  <!-- <!-- </mat-form-field>-->
+	  <mat-checkbox name="Descriptiveanswer" formControlName="Descriptiveanswer">Is this question a Descriptive Answer ?</mat-checkbox>
+    </div>
+	
+	<div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer1"
+        formControlName="Answer1"
+        placeholder="Answer1">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer2"
+        formControlName="Answer2"
+        placeholder="Answer2">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer3"
+        formControlName="Answer3"
+        placeholder="Answer3">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer4"
+        formControlName="Answer4"
+        placeholder="Answer4">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer5"
+        formControlName="Answer5"
+        placeholder="Answer5">
+      </mat-form-field>
+    </div>
+	<div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload1" formControlName="FileUpload1">FileUpload1</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload2" formControlName="FileUpload2">FileUpload2</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload3" formControlName="FileUpload3">FileUpload3</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload4" formControlName="FileUpload4">FileUpload4</mat-checkbox>
+    </div>
+	<div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>
+  

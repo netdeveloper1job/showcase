@@ -1,0 +1,18 @@
+app-mysubcomponent{
+	border: 2px solid gray;
+    padding: 10px; 
+	margin:2px;
+}
+.levelparent{
+	width:100%;
+}
+.level{
+	border:2px solid;
+	margin:5px;
+}
+.level span{
+	position: relative;
+    bottom: 11px;
+    left: 7px;
+    background: white;
+}

@@ -1,0 +1,63 @@
+<div class="m-333">
+  <!-- <span fxFlex></span> -->
+  <button mat-raised-button class="mb-05" color="primary" (click)="openPopUp({}, true)">{{addtitle}}</button>
+</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="items"
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Fname }} {{ row?.Lname }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Email" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Email }}
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="City" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- {{ row?.City }} -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <ngx-datatable-column name="State" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.State }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Country" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Country }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Usertype" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Usertype }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Referral Code" [flexGrow]="1" *ngIf="url=='Auditor'">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.GUID }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <mat-chip mat-sm-chip [color]="'primary'" [selected]="row.isActive">{{row.Status ? 'active' : 'inactive'}}</mat-chip>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="openPopUp(row)" matTooltip="Edit"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button mat-sm-button color="warn" (click)="deleteItem(row)" matTooltip="Delete"><mat-icon>delete</mat-icon></button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>

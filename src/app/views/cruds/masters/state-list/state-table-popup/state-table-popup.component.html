@@ -1,0 +1,202 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+	
+   
+	
+											
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Address" -->
+        <!-- [formControl]="itemForm.controls['Address']" -->
+        <!-- placeholder="Address"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="City" -->
+        <!-- [formControl]="itemForm.controls['City']" -->
+        <!-- placeholder="City"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+   
+    <div fxFlex="33.3"  class="pr-1">
+      <mat-form-field class="full-width">
+		  <mat-label>Select Country</mat-label>
+		  <mat-select [(value)]="selecteduser" name="Country" [formControl]="itemForm.controls['Country']">
+				<mat-select-search #myInput focused="'true'" (keyup)="searchcountry($event.target.value)" autocomplete="off" [placeholderLabel]="'Search Country'"></mat-select-search>
+				<mat-divider></mat-divider>
+			 <mat-option *ngFor="let country of selectedcountry" [value]="country?.ID">{{country?.country}}</mat-option>
+		  </mat-select>
+		</mat-form-field>
+    </div>
+	
+	 <div fxFlex="33.3"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="State"
+        [formControl]="itemForm.controls['State']"
+        placeholder="State">
+      </mat-form-field>
+    </div>
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+		<!-- type="number" -->
+        <!-- name="PIN" -->
+        <!-- [formControl]="itemForm.controls['PIN']" -->
+        <!-- placeholder="PIN"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Road" -->
+        <!-- [formControl]="itemForm.controls['Road']" -->
+        <!-- placeholder="Road Name or Number"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Access" -->
+        <!-- [formControl]="itemForm.controls['Access']" -->
+        <!-- placeholder="Access Details"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Lattitude" -->
+        <!-- [formControl]="itemForm.controls['Lattitude']" -->
+        <!-- placeholder="Lattitude"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Longitude" -->
+        <!-- [formControl]="itemForm.controls['Longitude']" -->
+        <!-- placeholder="Longitude"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	 <!-- <div fxFlex="33.3" class="pr-1"> -->
+			<!-- <mat-form-field class="full-width"> -->
+    <!-- <input matInput placeholder="Parking Type" aria-label="Parking_Type" [matAutocomplete]="auto" [formControl]="itemForm.controls['Parking_Type']"> -->
+    <!-- <mat-autocomplete #auto="matAutocomplete"> -->
+      <!-- <mat-option value="Self Assessed">Self Assessed</mat-option> -->
+	  <!-- <mat-option value="Certified">Certified</mat-option> -->
+	  <!-- <mat-option value="Not Certified">Not Certified</mat-option> -->
+    <!-- </mat-autocomplete> -->
+  <!-- </mat-form-field> -->
+			<!-- <small *ngIf="itemForm.controls['Parking_Type'].hasError('required') && itemForm.controls['Parking_Type'].touched" class="form-error-msg">Parking Type is required.</small> -->
+		 <!-- </div> -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Company" -->
+        <!-- [formControl]="itemForm.controls['Company']" -->
+        <!-- placeholder="Company Name"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Email" -->
+        <!-- [formControl]="itemForm.controls['Email']" -->
+        <!-- placeholder="Email Address"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Website" -->
+        <!-- [formControl]="itemForm.controls['Website']" -->
+        <!-- placeholder="Website"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Telephone" -->
+        <!-- [formControl]="itemForm.controls['Telephone']" -->
+        <!-- placeholder="Telephone"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+    <!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Currency" -->
+        <!-- [formControl]="itemForm.controls['Currency']" -->
+        <!-- placeholder="Currency Accepted"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div>	 -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Tarrif_day" -->
+        <!-- [formControl]="itemForm.controls['Tarrif_day']" -->
+        <!-- placeholder="Tarrif per day"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	<!-- <div fxFlex="33.3"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Tarrif_hour" -->
+        <!-- [formControl]="itemForm.controls['Tarrif_hour']" -->
+        <!-- placeholder="Tarrif per hour"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	<!-- <div fxFlex="33.3" class="pr-1"> -->
+			<!-- <mat-form-field class="full-width"> -->
+			  <!-- <mat-label>Security Rating</mat-label> -->
+			  <!-- <mat-select [(value)]="selectedsecurity" name="Security_rating" [formControl]="itemForm.controls['Security_rating']"> -->
+				<!-- <mat-option *ngFor="let num of numb" [value]="num">{{num}}</mat-option> -->
+			  <!-- </mat-select> -->
+			<!-- </mat-form-field> -->
+			<!-- <small *ngIf="itemForm.controls['Security_rating'].hasError('required') && itemForm.controls['Security_rating'].touched" class="form-error-msg">Security Rating is required.</small> -->
+		 <!-- </div> -->
+		 <!-- <div fxFlex="33.3" class="pr-1"> -->
+			<!-- <mat-form-field class="full-width"> -->
+			  <!-- <mat-label> Star Rating</mat-label> -->
+			  <!-- <mat-select [(value)]="selectedrating" name="Star_rating" [formControl]="itemForm.controls['Star_rating']"> -->
+				<!-- <mat-option *ngFor="let num of numb" [value]="num">{{num}}</mat-option> -->
+			  <!-- </mat-select> -->
+			<!-- </mat-form-field> -->
+			<!-- <small *ngIf="itemForm.controls['Star_rating'].hasError('required') && itemForm.controls['Star_rating'].touched" class="form-error-msg">Star Rating is required.</small> -->
+		 <!-- </div> -->
+	
+ <div fxFlex="20"  class="pt-1 pr-1">
+      <mat-slide-toggle formControlName="Status" >Status</mat-slide-toggle>
+    </div>
+	
+	
+   
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>

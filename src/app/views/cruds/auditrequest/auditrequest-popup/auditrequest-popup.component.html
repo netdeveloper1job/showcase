@@ -1,0 +1,45 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+		<div fxFlex="100" class="pr-1">
+			<mat-form-field class="full-width">
+				<input
+				  matInput
+				  placeholder="Parking"
+				  readonly
+				  formControlName="ParkingID">
+            </mat-form-field>
+		</div>
+		<!-- <div fxFlex="100"  class="pr-1"> -->
+		  <!-- <mat-form-field class="full-width"> -->
+              <!-- <input -->
+			  <!-- matInput -->
+			  <!-- placeholder="Question" -->
+			  <!-- readonly -->
+			  <!-- formControlName="AuditquestionID"> -->
+            <!-- </mat-form-field> -->
+		<!-- </div> -->
+		<div fxFlex="100" class="pr-1">
+		  <mat-form-field class="full-width">
+				<input
+				  matInput
+				  placeholder="Organization"
+				  readonly
+				  formControlName="OrganizationUserID">
+            </mat-form-field>
+		</div>
+		<div fxFlex="100" class="pr-1">
+		  <mat-form-field class="full-width">
+				<input
+				  matInput
+				  placeholder="Auditor"
+				  readonly
+				  formControlName="AuditorUserID">
+            </mat-form-field>
+		</div>
+    <div fxFlex="100" class="mt-1">
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Close</button>
+    </div>
+  </div>
+  </form>

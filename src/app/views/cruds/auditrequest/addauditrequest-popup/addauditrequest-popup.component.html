@@ -1,0 +1,41 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submitform()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+		<div fxFlex="100" class="pr-1">
+			<mat-form-field class="full-width">
+			  <mat-label>Select Parking</mat-label>
+			  <mat-select name="ParkingID" [formControl]="itemForm.controls['ParkingID']">
+				<mat-select-search #myInput focused="'true'" (keyup)="searchparking($event.target.value)" autocomplete="off" [placeholderLabel]="'Search Parking'"></mat-select-search>
+				<mat-option [disabled]="true">Parking Name - Country</mat-option>
+				<mat-divider></mat-divider>
+				<mat-option *ngFor="let a of selectedParkings" [value]="a.ID">{{a.Name}} - {{a.Country}}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			<small *ngIf="itemForm.controls['ParkingID'].hasError('required') && itemForm.controls['ParkingID'].touched" class="form-error-msg">Parking is required.</small>
+		</div>
+		<div fxFlex="100" class="pr-1">
+			<mat-form-field class="full-width">
+			  <mat-label>Select Organization</mat-label>
+			  <mat-select name="OrganizationUserID" [formControl]="itemForm.controls['OrganizationUserID']" (selectionChange)="getauditor($event)">
+				<!-- <mat-select-search #myInput focused="'true'" (keyup)="searchorg($event.target.value)" autocomplete="off" [placeholderLabel]="'Search Organization'"></mat-select-search> -->
+				<!-- <mat-divider></mat-divider> -->
+				<mat-option *ngFor="let org of selectedorg" [value]="org?.ID">{{org?.Fname}} {{org?.Lname}}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+			<small *ngIf="itemForm.controls['OrganizationUserID'].hasError('required') && itemForm.controls['OrganizationUserID'].touched" class="form-error-msg">Please Select a Organization.</small>
+		</div>
+		<div fxFlex="100" class="pr-1">
+			<mat-form-field class="full-width">
+			  <mat-label>Select Auditor</mat-label>
+			  <mat-select name="AuditorUserID" [formControl]="itemForm.controls['AuditorUserID']">
+				<mat-option *ngFor="let auditor of itemsauditor" [value]="auditor?.ID">{{auditor?.Fname}} {{auditor?.Lname}}</mat-option>
+			  </mat-select>
+			</mat-form-field>
+		</div>
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>

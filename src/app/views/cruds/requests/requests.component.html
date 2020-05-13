@@ -1,0 +1,46 @@
+<div class="m-333">
+  <!-- <span fxFlex></span> -->
+</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="items"
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Parking Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Name }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Country" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Country }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="State" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.State }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Organization Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.orgFname }} {{ row?.orgLname }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Organization Email" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.orgEmail }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="accept(row.requestID)" matTooltip="Accept Request"><mat-icon>check_circle</mat-icon></button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>

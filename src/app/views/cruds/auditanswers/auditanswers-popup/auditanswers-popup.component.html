@@ -1,0 +1,87 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <mat-form-field class="full-width" style="display:none;">
+	<input
+	  matInput
+	  placeholder="extra"
+	  formControlName="extra">
+   </mat-form-field>
+   <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+	  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let payload of data.payload; let i = index">
+		<p *ngIf="i==0" class="parntfirst">
+			<span *ngIf="payload.questionLevel!=''">{{payload.Reporttype}} - {{payload.Title}} - {{payload.questionLevel}}</span>
+			<span *ngIf="payload.questionLevel==''">{{payload.Reporttype}} - {{payload.Title}}</span>
+		</p>
+		<p *ngIf="i>0 && (data.payload[i].questionLevel!=data.payload[i-1].questionLevel || data.payload[i].ReportID!=data.payload[i-1].ReportID)" class="parnt">
+			<span *ngIf="payload.questionLevel!=''">{{payload.Reporttype}} - {{payload.Title}} - {{payload.questionLevel}}</span>
+			<span *ngIf="payload.questionLevel==''">{{payload.Reporttype}} - {{payload.Title}}</span>
+		</p>
+		<div fxFlex="100"  class="pr-1">
+			<mat-form-field class="full-width">
+			<input
+			  matInput
+			  placeholder="Question"
+			  [value]="payload.Question"
+			  readonly>
+			</mat-form-field>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer1==1">
+			<mat-checkbox [checked]="true" [disabled]="true">{{payload.ans1}}</mat-checkbox>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer1==0 && payload.ans1!=null">
+			<mat-checkbox [disabled]="true">{{payload.ans1}}</mat-checkbox>
+		</div>
+		
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer2==1">
+			<mat-checkbox [checked]="true" [disabled]="true">{{payload.ans2}}</mat-checkbox>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer2==0 && payload.ans2!=null">
+			<mat-checkbox [disabled]="true">{{payload.ans2}}</mat-checkbox>
+		</div>
+		
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer3==1">
+			<mat-checkbox [checked]="true" [disabled]="true">{{payload.ans3}}</mat-checkbox>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer3==0 && payload.ans3!=null">
+			<mat-checkbox [disabled]="true">{{payload.ans3}}</mat-checkbox>
+		</div>
+		
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer4==1">
+			<mat-checkbox [checked]="true" [disabled]="true">{{payload.ans4}}</mat-checkbox>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer4==0 && payload.ans4!=null">
+			<mat-checkbox [disabled]="true">{{payload.ans4}}</mat-checkbox>
+		</div>
+		
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer5==1">
+			<mat-checkbox [checked]="true" [disabled]="true">{{payload.ans5}}</mat-checkbox>
+		</div>
+		<div fxFlex="20"  class="pr-1" *ngIf="payload.Answer5==0 && payload.ans5!=null">
+			<mat-checkbox [disabled]="true">{{payload.ans5}}</mat-checkbox>
+		</div>
+		
+		<div fxFlex="100"  class="pr-1" *ngIf="payload.DescriptiveAnswer != null">
+			<mat-form-field class="full-width">
+				<textarea matInput [value]="payload.DescriptiveAnswer" readonly placeholder="Descriptive Answer"></textarea>
+			</mat-form-field>
+		</div>
+		<div fxFlex="25"  class="pr-1" *ngIf="payload.FileUpload1!=''">
+			<img [src]="payload.FileURL+payload.FileUpload1" matTooltip="File1 Uploaded by {{payload.Fname}} {{payload.Lname}}" style="width:100%" (click)="openimage(payload.FileURL+payload.FileUpload1,1)">
+		</div>
+		<div fxFlex="25"  class="pr-1" *ngIf="payload.FileUpload2!=''">
+			<img [src]="payload.FileURL+payload.FileUpload2" matTooltip="File2 Uploaded by {{payload.Fname}} {{payload.Lname}}" style="width:100%" (click)="openimage(payload.FileURL+payload.FileUpload2,2)">
+		</div>
+		<div fxFlex="25"  class="pr-1" *ngIf="payload.FileUpload3!=''">
+			<img [src]="payload.FileURL+payload.FileUpload3" matTooltip="File3 Uploaded by {{payload.Fname}} {{payload.Lname}}" style="width:100%" (click)="openimage(payload.FileURL+payload.FileUpload3,3)">
+		</div>
+		<div fxFlex="25"  class="pr-1" *ngIf="payload.FileUpload4!=''">
+			<img [src]="payload.FileURL+payload.FileUpload4" matTooltip="File4 Uploaded by {{payload.Fname}} {{payload.Lname}}" style="width:100%" (click)="openimage(payload.FileURL+payload.FileUpload4,4)">
+		</div>
+		</div>
+		<div fxFlex="100" class="mt-1">
+		  <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">close</button>
+		  <span fxFlex></span>
+		  <!-- <button mat-raised-button color="primary" *ngIf="data.submit">Next</button> -->
+		</div>
+	</div>
+  </form>

@@ -1,0 +1,51 @@
+<div class="m-333">
+  <!-- <span fxFlex></span> -->
+  <button mat-raised-button class="mb-05" color="primary" (click)="openPopUp({}, true)">Add Question</button>
+  <span fxFlex></span>
+   <a routerLink="/generate/sample" target="_blank"><button mat-raised-button class="mb-05" color="primary">Preview Audit Form</button></a>
+</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="items"
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Report Type" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Reporttype }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Report Title" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Title }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Question" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Question }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Level" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.questionLevel }}
+            </ng-template>
+          </ngx-datatable-column>
+		  <!-- <ngx-datatable-column name="Status" [flexGrow]="1"> -->
+            <!-- <ng-template let-row="row" ngx-datatable-cell-template> -->
+              <!-- <mat-chip mat-sm-chip [color]="'primary'" [selected]="row.isActive">{{row.Status ? 'active' : 'inactive'}}</mat-chip> -->
+            <!-- </ng-template> -->
+          <!-- </ngx-datatable-column> -->
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button mat-icon-button mat-sm-button color="primary" class="mr-1" matTooltip="Edit" (click)="openPopUp(row)"><mat-icon>edit</mat-icon></button>
+			  <!-- <button mat-icon-button matTooltip="Send Request" mat-sm-button color="primary" class="mr-1" (click)="openrequestPopUp(row.ID)"><mat-icon>file_upload</mat-icon></button> -->
+              <button mat-icon-button mat-sm-button color="warn" matTooltip="Delete" (click)="deleteItem(row)"><mat-icon>delete</mat-icon></button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>

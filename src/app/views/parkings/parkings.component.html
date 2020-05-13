@@ -1,0 +1,98 @@
+<!--<p style="text-align:center;"><img src="assets/images/smallLogo.png"></p>
+<h3 style="text-align:center;margin-top: -20px;">Our Parkings <button mat-raised-button color="primary" routerLink="/parkings/filterparking">Click here</button></h3>-->
+
+<div style="height: 88vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbarhere">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="assets/images/smallLogo.png">
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a (click)="login()" mat-button>Login</a>
+        <a (click)="register()" mat-button>Register</a>
+        <a routerLink="/parkings/filterparking" mat-button>Filter Parkings</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a (click)="login()" mat-button>Login</a>
+        <a (click)="register()" mat-button>Register</a>
+        <a routerLink="/parkings/filterparking" mat-button>Filter Parkings</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+	<div #map style="width:100%;height:100%"></div></mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<!-- <p *ngFor="let marker of items">{{marker.Lattitude}} - {{marker.Longitude}}</p> -->
+<!-- </div> -->
+<!-- <section class="comming_top_wrap" fxLayout="column" fxLayoutAlign="center center"> -->
+  <!-- <div class="comming_top_content"> -->
+      <!-- <div class="comming_logo" -->
+      <!-- [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'100ms', duration: '400ms'}}"> -->
+          <!-- <img src="assets/images/smallLogo.png"> -->
+      <!-- </div> -->
+      <!-- <div id="my"> -->
+		  <!-- <h1 class="text-white" -->
+		  <!-- [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'200ms', duration: '400ms'}}"> -->
+			  <!-- We Are Coming Soon -->
+		  <!-- </h1> -->
+		  <!-- <p class="t-mb-2" -->
+		  <!-- [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'300ms', duration: '400ms'}}"> -->
+			  <!-- Till now. -->
+		  <!-- </p> -->
+		  <!-- <p><small>Login to your Account  <b>&nbsp;OR&nbsp;</b>  Create an Account with us</small></p> -->
+		  <!-- <p style="text-align:center;"><button mat-raised-button color="primary" (click)="login()">Login</button> <b>&nbsp;OR&nbsp;</b> <button mat-raised-button color="primary" (click)="register()">Register</button></p> -->
+	  <!-- </div> -->
+      <!-- <div class="count_down"  -->
+      <!-- fxLayoutGap.gt-sm="10px"  -->
+      <!-- fxLayout="row wrap"  -->
+      <!-- fxLayoutAlign="center center" -->
+      <!-- > -->
+          <!-- <mat-card fxFlex.xs="40%" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'400ms', duration: '400ms'}}"> -->
+              <!-- <mat-card-title> -->
+                  <!-- <h3 class="text-white">{{timerCounter.d}}</h3> -->
+              <!-- </mat-card-title> -->
+              <!-- <mat-card-content> -->
+                  <!-- <p>days</p> -->
+              <!-- </mat-card-content> -->
+          <!-- </mat-card> -->
+          <!-- <mat-card fxFlex.xs="40%" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'500ms', duration: '400ms'}}"> -->
+              <!-- <mat-card-title> -->
+                  <!-- <h3 class="text-white">{{timerCounter.h}}</h3> -->
+              <!-- </mat-card-title> -->
+              <!-- <mat-card-content> -->
+                  <!-- <p>hours</p> -->
+              <!-- </mat-card-content> -->
+          <!-- </mat-card> -->
+          <!-- <mat-card fxFlex.xs="40%" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'600ms', duration: '400ms'}}"> -->
+              <!-- <mat-card-title> -->
+                  <!-- <h3 class="text-white">{{timerCounter.m}}</h3> -->
+              <!-- </mat-card-title> -->
+              <!-- <mat-card-content> -->
+                  <!-- <p>minutes</p> -->
+              <!-- </mat-card-content> -->
+          <!-- </mat-card> -->
+          <!-- <mat-card fxFlex.xs="40%" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'700ms', duration: '400ms'}}"> -->
+              <!-- <mat-card-title> -->
+                  <!-- <h3 class="text-white">{{timerCounter.s}}</h3> -->
+              <!-- </mat-card-title> -->
+              <!-- <mat-card-content> -->
+                  <!-- <p>seconds</p> -->
+              <!-- </mat-card-content> -->
+          <!-- </mat-card> -->
+      <!-- </div> -->
+  <!-- </div> -->
+<!-- </section> -->
+
+<!--<div #map style="width:100%;height:78%"></div>
+<div><p style="text-align:center;margin-top:1%;"><button mat-raised-button color="primary" (click)="login()">Login</button> <b>&nbsp;OR&nbsp;</b> <button mat-raised-button color="primary" (click)="register()">Register</button> </p>
+<!-- <p *ngFor="let marker of items">{{marker.Lattitude}} - {{marker.Longitude}}</p>
+</div> -->

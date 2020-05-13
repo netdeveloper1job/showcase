@@ -1,0 +1,179 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+	
+	<div fxFlex="100"  class="pr-1">
+		<mat-form-field class="full-width">
+		  <mat-label>Select Report Type</mat-label>
+		  <mat-select name="Reporttype" [formControl]="itemForm.controls['Reporttype']">
+			<mat-option *ngFor="let rep of data.type" [value]="rep.ID">{{rep.Reporttype}}-{{rep.Title}}</mat-option>
+		  </mat-select>
+		</mat-form-field>
+    </div>
+	
+	<!-- <div fxFlex="50"  class="pr-1"> -->
+      <!-- <mat-form-field class="full-width"> -->
+        <!-- <input -->
+        <!-- matInput -->
+        <!-- name="Title" -->
+        <!-- [formControl]="itemForm.controls['Title']" -->
+        <!-- placeholder="Title"> -->
+      <!-- </mat-form-field> -->
+    <!-- </div> -->
+	
+	<div fxFlex="100"  class="pr-1">
+		<mat-form-field class="full-width">
+		  <mat-label>Select Level</mat-label>
+		  <mat-select name="Level" [formControl]="itemForm.controls['Level']">
+			<mat-option value="empty">empty</mat-option>
+			<mat-option value="Bronze Level">Bronze Level</mat-option>
+			<mat-option value="Silver Level">Silver Level</mat-option>
+			<mat-option value="Gold Level">Gold Level</mat-option>
+			<mat-option value="Platinum Level">Platinum Level</mat-option>
+		  </mat-select>
+		</mat-form-field>
+    </div>
+	
+	<div fxFlex="50"  class="pr-1">
+      <mat-form-field class="full-width">
+		<textarea matInput placeholder="Question" formControlName="Question"></textarea>
+	  </mat-form-field>
+    </div>
+	
+	<div fxFlex="50"  class="pr-1">
+	  <!--<mat-form-field class="full-width">
+		<textarea matInput placeholder="Descriptive Answer" name="Descriptiveanswer" [formControl]="itemForm.controls['Descriptiveanswer']"></textarea>
+	  <!-- <!-- </mat-form-field>-->
+	  <mat-checkbox name="Descriptiveanswer" formControlName="Descriptiveanswer">Is this question a Descriptive Answer ?</mat-checkbox>
+    </div>
+	
+	<div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer1"
+        formControlName="Answer1"
+        placeholder="Answer1">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer2"
+        formControlName="Answer2"
+        placeholder="Answer2">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer3"
+        formControlName="Answer3"
+        placeholder="Answer3">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer4"
+        formControlName="Answer4"
+        placeholder="Answer4">
+      </mat-form-field>
+    </div>
+    <div fxFlex="20"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="Answer5"
+        formControlName="Answer5"
+        placeholder="Answer5">
+      </mat-form-field>
+    </div>
+	<div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload1" formControlName="FileUpload1">FileUpload1</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload2" formControlName="FileUpload2">FileUpload2</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload3" formControlName="FileUpload3">FileUpload3</mat-checkbox>
+    </div>
+    <div fxFlex="25"  class="pr-1">
+      <mat-checkbox name="FileUpload4" formControlName="FileUpload4">FileUpload4</mat-checkbox>
+    </div>
+	
+	<!-- <div formArrayName="formArraybronze" class="levelparent"> -->
+	 <!-- <div *ngIf="selected=='Security Report'" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="level"> -->
+	  <!-- <span>Bronze Level</span> -->
+	  <!-- <div [formGroupName]="i" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let control of itemForm.controls['formArraybronze'].controls; let i = index;"> -->
+	  <!-- <app-mysubcomponent [myForm]="itemForm.controls.formArraybronze.controls[i]"></app-mysubcomponent> -->
+	  <!-- </div> -->
+	  <!-- <div fxFlex="50"  class="pt-1 pr-1"> -->
+      <!-- <button mat-button color="primary" type="button" (click)="addItembronze()">Add more question</button> -->
+	  <!-- </div> -->
+	 <!-- </div> -->
+	<!-- </div> -->
+	
+	<!-- <div formArrayName="formArraysilver" class="levelparent"> -->
+	 <!-- <div *ngIf="selected=='Security Report'" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="level"> -->
+	  <!-- <span>Silver Level</span> -->
+	  <!-- <div [formGroupName]="i" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let control of itemForm.controls['formArraysilver'].controls; let i = index;"> -->
+	  <!-- <app-mysubcomponent [myForm]="itemForm.controls.formArraysilver.controls[i]"></app-mysubcomponent> -->
+	  <!-- </div> -->
+	  <!-- <div fxFlex="50"  class="pt-1 pr-1"> -->
+      <!-- <button mat-button color="primary" type="button" (click)="addItemsilver()">Add more question</button> -->
+	  <!-- </div> -->
+	 <!-- </div> -->
+	<!-- </div> -->
+	
+	<!-- <div formArrayName="formArraygold" class="levelparent"> -->
+	 <!-- <div *ngIf="selected=='Security Report'" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="level"> -->
+	  <!-- <span>Gold Level</span> -->
+	  <!-- <div [formGroupName]="i" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let control of itemForm.controls['formArraygold'].controls; let i = index;"> -->
+	  <!-- <app-mysubcomponent [myForm]="itemForm.controls.formArraygold.controls[i]"></app-mysubcomponent> -->
+	  <!-- </div> -->
+	  <!-- <div fxFlex="50"  class="pt-1 pr-1"> -->
+      <!-- <button mat-button color="primary" type="button" (click)="addItemgold()">Add more question</button> -->
+	  <!-- </div> -->
+	 <!-- </div> -->
+	<!-- </div> -->
+	
+	<!-- <div formArrayName="formArrayplatinum" class="levelparent"> -->
+	 <!-- <div *ngIf="selected=='Security Report'" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class="level"> -->
+	  <!-- <span>Platinum Level</span> -->
+	  <!-- <div [formGroupName]="i" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let control of itemForm.controls['formArrayplatinum'].controls; let i = index;"> -->
+	  <!-- <app-mysubcomponent [myForm]="itemForm.controls.formArrayplatinum.controls[i]"></app-mysubcomponent> -->
+	  <!-- </div> -->
+	  <!-- <div fxFlex="50"  class="pt-1 pr-1"> -->
+      <!-- <button mat-button color="primary" type="button" (click)="addItemplatinum()">Add more question</button> -->
+	  <!-- <br> -->
+	  <!-- </div> -->
+	 <!-- </div> -->
+	<!-- </div> -->
+	
+	<!-- <div formArrayName="formArray"> -->
+	 <!-- <div *ngIf="selected=='Service Report'" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap"> -->
+	  <!-- <div [formGroupName]="i" fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" *ngFor="let control of itemForm.controls['formArray'].controls; let i = index;"> -->
+	  <!-- <app-mysubcomponent [myForm]="itemForm.controls.formArray.controls[i]"></app-mysubcomponent> -->
+	  <!-- </div> -->
+	  <!-- <div fxFlex="50"  class="pt-1 pr-1"> -->
+      <!-- <button mat-button color="primary" type="button" (click)="addItem()">Add more question</button> -->
+	  <!-- </div> -->
+	 <!-- </div> -->
+	<!-- </div> -->
+	
+    <div fxFlex="80"  class="pt-1 pr-1"></div>
+    <div fxFlex="20"  class="pt-1 pr-1">
+      <mat-slide-toggle formControlName="Status" [formControl]="itemForm.controls['Status']">Active Question</mat-slide-toggle>
+    </div>
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>

@@ -1,0 +1,149 @@
+
+
+.image-style{
+    width: 66px;
+    height: 64px;   
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: gray;  
+}
+.background {
+  background-color: green;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 0px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid green;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+  z-index: 99999;
+}
+
+label img {
+  height: 100px;
+  width: 100px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  content: "✓";
+  background-color: green;
+  transform: scale(1);
+}
+
+:checked+label img {
+  transform: scale(0.9);
+  z-index: -1;
+}
+::ng-deep  .rating {
+outline: 0px !important;
+
+}
+::ng-deep  .rating.color-ok .star-container .star svg {
+ fill: #ffc058 !important;
+ height: 16px;
+ margin-top: 5px;
+}
+
+.GalleryImg{
+    max-width: 50%;
+    padding-left: 2px;
+    padding-top: 7px;
+    padding-right: 22px;
+ 
+
+}
+.imageGallery{
+    text-align: left;
+	
+
+}
+
+img.close {
+    width: 22px;
+    position: absolute;
+    top: 24px;
+  
+    left: 240px;
+}
+::ng-deep .ck.ck-editor {
+    
+    padding-bottom: 15px !important;
+}
+
+.parent {
+  display: inline;
+  position: relative;
+  width: 20%;
+  height: auto; // Or your height
+}
+.parent img.close {
+
+  right: 0;
+  top: 0;
+  height: 21px;
+  width: 21px;
+   position: absolute;
+    top: 0px;
+    left: 0px;
+	display: block;
+  }
+span.material-icons.close.ng-star-inserted {
+    font-weight: 600;
+    color: red;
+    top: 0px;
+    position: absolute;
+    right: 30px;
+    font-size: 19px;
+    background: white;
+	border-radius: 50%;
+}
+
+.titleurl{
+margin:0px !important;
+padding-bottom: 2px !important;
+padding-top: 7px !important;
+font-size: 15px !important;
+}
+.urlheadtitle{
+    font-size: 27px;
+    color: #004070;
+    font-family: "FjallaOne";
+    font-weight: 600;
+	}

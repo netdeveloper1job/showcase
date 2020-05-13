@@ -1,0 +1,615 @@
+@font-face {
+  font-family: FjallaOne;
+  src: url(../../../../assets/fonts/FjallaOne-Regular.otf) format("opentype");
+}
+
+mat-panel-title.mat-expansion-panel-header-title {
+    color: white !important;
+	font-size: 14px !important;
+	
+	
+}
+mat-expansion-panel-header {
+    height: 30px !important;
+    padding: 0 6px !important;
+	
+}
+.mat-expanded .mat-expansion-panel-header {
+    margin-bottom: 1rem;
+    height: 30px !important;
+	padding: 0 6px !important;
+	
+}
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+    cursor: pointer;
+    height: 30px !important;
+	
+}
+.egret-indigo .mat-expansion-panel-header-description, .egret-indigo .mat-expansion-indicator::after {
+    color: #fff !important;
+	
+}
+.mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0 6px 6px 0 !important;
+    content: '';
+    display: inline-block;
+    padding: 3px !important;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    color: #fff !important;
+}
+
+.egret-indigo .mat-table {
+    background: white;
+	width:100% !important;
+}
+table.mat-elevation-z8.mat-table {
+    width: 100% !important;
+
+}
+
+
+
+.image-style{
+    width: 66px;
+    height: 64px;   
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: gray;  
+}
+.background {
+  background-color: green;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 0px;
+  display: block;
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.services_img small{
+position: absolute;
+ bottom: 0;
+ right: 0;
+ background: #004070 ;
+ color: white;
+ margin-bottom: 5px;
+ font-family: sans-serif;
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition: visibility 0s, opacity 0.5s linear; 
+ transition: visibility 0s, opacity 0.5s linear;
+}
+.services_img :hover small{
+ width: 110px;
+ padding: 3px 10px;
+ visibility: visible;
+ opacity: 0.7; 
+ margin:0px;
+ width: 100%;
+
+}
+
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid green;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+  z-index: 99999;
+}
+
+label img {
+  height:50px;
+  width: 50px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+.mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0 5px 5px 0 !important;
+    content: '';
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    color: #fff !important;
+}
+:checked+label {
+   border-color: transparent !important;
+
+}
+
+:checked+label::before {
+  content: "✓";
+  background-color: green;
+  transform: scale(1);
+}
+
+:checked+label img {
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.toolbarhere {
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+}
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.bacground-image{
+    width: 100%;
+    background-image: url(/assets/images/background1366x768.jpg);
+    height: 100%;
+	background-size: cover;
+}
+.max-w{
+max-width: 1180px;
+margin-right: auto;
+margin-left: auto;
+
+}
+.sitebackground{
+background: #ffffff7a;
+}
+.width-imp{
+	max-width: 30% !important;
+}
+.sidebar{
+	width: 378px;
+}
+.middle{
+	width: 540px;
+}
+.sidebartop{
+    width: 369px;
+    height: 174px;
+    background-color: #ffffff;
+    
+    margin-left: 4px;
+}
+.sidebartopright{
+	
+	background-color: #004070;
+}
+.mat-card {
+    margin: 0rem;
+    overflow: hidden;
+}
+.img-src{
+	
+	max-width: 65%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+.rightimg{
+	width: 262px;
+}
+.sideimg1{
+	width:100%;
+	background-size:cover;
+}
+.mp{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.pos1{
+	position: relative;
+	bottom: 6px;
+}
+.pos2{
+	position: relative;
+	bottom: 12px;
+}
+.pos3{
+	position: relative;
+	bottom: 19px
+}
+mat-form-field input[matInput] {
+   color: red;
+}
+.img-h{
+	
+	position: relative;
+	top: 5px;
+}
+.bc-color{
+	background: #004070 !important;
+	
+	margin-bottom:0px !important;
+}
+.Filter{
+	font-size: 24px;
+	color: #004070;
+	font-family: "FjallaOne";
+	font-weight: 400;
+	margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 1rem;
+	
+}
+.full-width{
+	color: #004070;
+	font-family: "FjallaOne" !important;
+	font-weight: 400;
+  
+}
+.cartcon1{
+
+   padding: 0px 0px 0px !important;
+   position:relative;
+
+}
+.material-icons {
+    background: #004070 ;
+    color: white;
+	
+    padding: 7px;
+    position: relative;
+    bottom: 10px;
+    left: 18px;
+    font-size: 27px;
+}
+
+
+.sidebarservice{
+	font-size: 20px;
+	line-height: 29px !important;
+	color: #ffffff !important;
+	font-family: "FjallaOne";
+	font-weight: 400;
+	
+	
+}
+.sidebartitle{
+	font-size: 14px;
+	//line-height: 29px !important;
+	color: #004070;
+	font-family: "FjallaOne";
+	font-weight: 400;
+	width:100%;
+	
+	
+}
+
+.heading-text{
+    width:50%;
+    font-size: 30px;
+    line-height: 40px;
+    color: #004070;
+    font-family: "FjallaOne";
+    font-weight: 400;
+    margin-left: 1.0rem;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: 0px;
+   
+	
+}
+	
+
+ 
+.under1{
+	background-color: #000000 !important;
+	border: 0.5px solid #004070 !important;
+}
+.mat-drawer-container {
+    padding-top: 20px;
+	padding-bottom: 20px;
+}
+ngx-datatable{
+ margin-top: 0px !important;
+
+
+}
+
+::ng-deep .mat-select-arrow {
+    color: rgb(0, 64, 112) !important;
+}
+
+:host ::ng-deep .mat-select-arrow {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 10px solid;
+    margin: 0 4px;
+}
+:host ::ng-deep  .mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0px 2px 2px 0;
+    content: '';
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    color: #fff !important;
+}	
+
+
+:host ::ng-deep .datatable-header-inner {
+  background: #004070 !important;
+}
+:host ::ng-deep .ngx-datatable.material .datatable-header .datatable-header-cell {
+   
+   color: #ffffff !important;
+    font-family: "FjallaOne" !important;
+	padding:0px 0px 0px 15px;
+   
+}
+
+
+:host ::ng-deep  .ngx-datatable .datatable-body .datatable-row-wrapper {
+   
+    margin-top: 5px;
+}
+.ngx-datatable.material {
+    background: none;
+	}
+	
+:host ::ng-deep .ngx-datatable .datatable-body .datatable-body-row > div {
+    display: flex;
+     background-color: #fff9;
+}
+:host ::ng-deep .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+    
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "FjallaOne";
+    color: #004070;
+   padding-top: 0px;
+    
+}
+:host ::ng-deep .mat-form-field-infix {
+   
+   border-top-width: 0px !important;
+}
+:host ::ng-deep  .mat-content {
+    margin-left:10px;
+}
+:host ::ng-deep  .egret-indigo .mat-expansion-panel-header-description, .egret-indigo .mat-expansion-indicator::after {
+    color: rgb(255, 255, 255);
+}
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+color: rgb(0, 64, 112) !important;
+}
+:host ::ng-deep  .ngx-datatable .datatable-header .datatable-header-cell.sortable .datatable-header-cell-wrapper {
+  
+    font-family: "FjallaOne";
+    font-weight: 400;
+    font-size: 15px;
+} 
+:host ::ng-deep  .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell, .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-group-cell {
+text-align: left;
+padding-left: 1rem;
+vertical-align: top;
+border-top: 0;
+color: #004070;
+transition: width .3s;
+font-size: 14px;
+font-weight: 400;
+padding-top:0px;
+padding-bottom:0px;
+padding-right:0px;
+
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+    color: #ffffff !important;
+    font-family: "FjallaOne" !important;
+    letter-spacing: 0.5px;
+}
+
+:host ::ng-deep .ngx-datatable .datatable-footer .datatable-footer-inner {
+    
+    background: #fff9;
+}
+
+.img-src1{
+width:8%;
+
+}
+.text-center{
+margin-top:0px !important;
+}
+
+::ng-deep .egret-indigo .mat-drawer-container {
+background-color:transparent;
+color: rgba(0, 0, 0, 0.87);
+}
+
+::ng-deep .bacground-image{
+width: 100%;
+background-image: url(/assets/images/background1366x768.jpg)no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: 100% 100%;
+
+}
+
+::ng-deep  .rating {
+outline: 0px !important;
+
+}
+::ng-deep  .rating.color-ok .star-container .star svg {
+      fill: #004070 !important;
+    height: 16px;
+    margin-top: 5px;
+}
+:host ::ng-deep  .mat-drawer-content {
+position: relative;
+z-index: 1;
+display: block;
+height: 100%;
+overflow: hidden;
+}
+ :host ::ng-deep .mat-icon-button{
+color: #808080 !important;
+background:none !important;
+width: 23px !important;
+height: 31px !important;
+
+}
+
+ 
+mat-icon.SecurityLock.mat-icon.ng-tns-c1-0.material-icons {
+ background:none !important;
+  color:#004070 !important;
+}
+:host ::ng-deep :checked + label img {
+    -webkit-transform: scale(.9) ;
+    transform: scale(.9) ;
+    z-index: 0 !important;
+}
+:host ::ng-deep .mat-radio-button {
+    display: inline-block;
+    width: 47% ;
+}
+
+ .mat-radio-button {
+    width: 44%;
+    padding-left: 15px;
+}
+
+.table-section{
+padding-top:6px;
+}
+.security-width{
+	width: 150px;
+}
+.service-width{
+	width: 150px;
+}
+
+.searchfilter{
+font-size: 14px !important;
+margin-bottom: 0px !important;
+padding-left: 1rem;
+color: white !important;
+height: 29px !important;
+background: #004070 !important;
+letter-spacing: 0.8px;
+}
+.logo_icon{
+width:100%;
+max-height:165px;
+height:100%;
+
+}
+.login_text{
+float: right;
+color: #004070;
+font-weight: bold;
+font-size: 15px;
+vertical-align: middle;
+text-decoration: underline;
+font-family: "FjallaOne";
+
+}
+
+  @media (max-width: 480px) {
+:host  ::ng-deep .services_img {
+    max-width: 20% !important;
+	}
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+:host  ::ng-deep .hidemobileview {
+    display:none;
+}
+:host  ::ng-deep  .ipadview{
+  display:block;
+  }
+.login_text{
+float: right;
+color: #004070;
+font-weight: bold;
+font-size: 15px;
+vertical-align: middle;
+text-decoration: underline;
+font-family: "FjallaOne";
+padding-right:10px;
+
+}
+:host  ::ng-deep  .mat-drawer {
+    z-index: 4;
+    display: block;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    outline: 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    transform: translate3d(-100%,0,0);
+}
+.mat-icon.ng-tns-c1-0.material-icons {
+    padding-top: 17px;
+}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+
+ :host  ::ng-deep  .ipadview{
+  display:none;
+  }
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+:host  ::ng-deep  .ipadview{
+  display:none;
+  }
+
+}
+:host  ::ng-deep .mat-radio-label-content{
+font-family: "FjallaOne";
+
+}
+:host  ::ng-deep  .mat-form-field-hide-placeholder .mat-select-placeholder{
+
+font-family: "FjallaOne";
+}
+
+:host  ::ng-deep .mat-input-element{
+font-family: "FjallaOne";
+}
+
+:host  ::ng-deep button#infoWindowButton {
+    background: #FFFFFF !important;
+    border: none !important;
+    color: #0000FF !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+	padding-left: 0px !important;
+	font-family: "FjallaOne" !important;
+}

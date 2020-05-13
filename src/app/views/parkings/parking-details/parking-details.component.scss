@@ -1,0 +1,211 @@
+.card-title-text{
+	padding: 4px !important;
+}
+
+.serviceimages{
+	width: 100% !important;
+}
+.p-line{
+	font-size: 15px !important;	
+}
+.toolbarhere {
+    margin-top: 18px !important;
+    margin-bottom: 18px !important;
+}
+.menu-spacer {
+  flex: 1 1 auto;
+}
+ dl.ar-two {
+        margin: 1em 0;
+        padding: 0;
+    }
+	dl.ar-two dt {
+    clear: left;
+    float: left;
+    width: 13%;
+    margin: 0 0 .2em 0;
+}
+dl.ar-two dd {
+    float: left;
+    margin: 0 0 .2em 2%;
+}
+dl.ar-two:after {
+    content: '.' ;
+    clear: both ;
+    display: block ;
+    visibility: hidden ;
+    height: 1px ;
+    font-size: 1px ;
+}
+.heading{
+	border: 0.5px solid #004070;
+	height:105px;
+}
+.heading-text{
+    width:80%;
+    font-size: 30px;
+    line-height: 40px;
+    color: #004070;
+    font-family: "FjallaOne";
+    font-weight: 400;
+    margin-left: 1.0rem;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;	
+}
+.after-heading{
+	font-size: 20px;
+	line-height: 44px;
+	color: #ffffff;
+	font-family: "FjallaOne";
+	font-weight: 400;
+	margin-left:5px;
+	background-color: #004070;
+	margin-right: 5px;
+    margin-bottom: 0px;
+}
+.mtop{
+	margin-top:0px;
+}
+.bc-color{
+	background: #004070 !important;
+	padding: 0px !important;
+}
+.text1{
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+:host ::ng-deep .title-1st{
+font-size: 16px;
+line-height: 25px;
+color: #004070;
+font-family: FjallaOne;
+font-weight: 400;
+margin-bottom: 0;
+background-color: #fff9;
+position: relative;
+margin-top: 5px;
+padding-left: 5px;
+}
+.under1{
+	background-color: #000000;
+	border: 0.5px solid #004070;
+}
+:host ::ng-deep .ngx-datatable .datatable-body .datatable-body-row > div {
+    display: flex;
+     background-color: #fff9;
+}
+
+mat-card-content.m-1.mat-card-content {
+margin: 5px !important;
+}
+
+.after-heading[_ngcontent-c14] {
+font-size: 20px;
+line-height: 44px;
+color: #fff;
+font-family: FjallaOne;
+font-weight: 400;
+margin-left: 5px;
+background-color: #004070;
+margin-right: 5px;
+margin-bottom: 0;
+padding-left: 5px;
+}
+.p-0 {
+padding: 1rem !important;
+}
+
+.servicedetail{
+ margin-bottom:0px ; 
+ }
+.servicedetail1{
+ margin-top:0px !important;
+ }
+.serviceimages1{
+  margin-top:0px !important;
+  padding: 10px;
+  max-height: 28% !important;
+ 
+ }
+ 
+ .max-w {
+max-width: 1180px;
+margin-right: auto;
+margin-left: auto;
+background: #ffffff7a;
+}
+.head{
+    
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+	font-family: "FjallaOne";
+	font-size: 30px !important;
+    padding: 10px 6px !important;
+	}
+
+.titlehead{
+ background-color: #004070 !important;
+ margin-top:5px;
+}
+
+.imgservicelevel_icon{
+    float: right;
+    padding-right: 7px;
+    padding-top: 7px;
+    max-width: 45px;
+    max-height: 80px;
+
+
+} 
+
+  @media (max-width: 480px) {
+:host  ::ng-deep .serviceimages1 {
+    max-width: 20% !important;
+}
+.imgservicelevel_icon {
+    float: right;
+    padding-right: 7px;
+    padding-top: 7px;
+    max-width: 45px;
+    max-height: 80px;
+}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+:host  ::ng-deep .hidemobileview {
+    display:none;
+}
+:host  ::ng-deep  .ipadview{
+  display:block;
+  }
+.login_text{
+float:right;
+color:black;
+font-weight: bold;
+font-size: 25px;
+vertical-align: middle;
+padding-right:20px;
+height:5px;
+}
+:host  ::ng-deep  .mat-drawer {
+    z-index: 4;
+    display: block;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    outline: 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    transform: translate3d(-100%,0,0);
+}
+.mat-icon.ng-tns-c1-0.material-icons {
+    padding-top: 17px;
+}
+}
+.SMicon{
+font-size:22px;
+padding:5px;
+}

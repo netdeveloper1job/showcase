@@ -1,0 +1,154 @@
+<div>
+<div class="row titlehead">
+	<div fxFlex="70" class=" coll " >
+	   <h3 class="head titleparking" >{{parkingdetails?.Name}}</h3>
+	  
+
+	 </div>
+	 
+	   <div  fxFlex="30" class=" coll 1" *ngIf="parkingservicelevel != {} || parkingdetails !={}">
+	
+	   <img *ngIf="parkingservicelevel" data-src="{{imagepathurl}}{{parkingservicelevel?.ServiceLevelLogo}}" class="imgservicelevel_icon lazyload"/> 
+	 
+	  <!-- <div *ngIf="!parkingservicelevel?.ServiceLevelLogo && parkingdetails?.Parking_Type1 == 'Dedicated Truck parking'" fxFlex="30" class=" coll 1"> -->
+	  <img *ngIf="!parkingservicelevel?.ServiceLevelLogo && parkingdetails?.Parking_Type1 == 'Dedicated Truck parking'" data-src="assets/images/truckparking.png" class="imgservicelevel_icon lazyload" 
+   /> 
+	  <!-- </div> -->
+	  
+	   <!-- <div *ngIf="!parkingservicelevel?.ServiceLevelLogo && parkingdetails?.Parking_Type1 == 'Truck Service Station' " fxFlex="30" class=" coll 1"> -->
+	   <img *ngIf="!parkingservicelevel?.ServiceLevelLogo && parkingdetails?.Parking_Type1 == 'Truck Service Station' "   data-src="assets/images/servicestation.png" class="imgservicelevel_icon lazyload"
+   />
+	   <!-- </div> -->
+	
+	 
+	 </div>
+</div>
+  <!-- <mat-sidenav-container fxFlexFill> -->
+   
+    <!-- <mat-sidenav-content fxFlexFill> -->
+	
+	<div fxLayout="row" fxLayoutWrap="wrap">
+	
+	<div fxFlex="100" fxFlex.gt-xs="100">
+	<!--<h5 class="heading-text">Truckparkinglots in Germany Ordered by: Roadnumber - Exit</h5>	-->
+	<!-- <p class="after-heading">Parkingname Place Highway Exit Postc</p>		 -->
+		<!-- <mat-card class="p-0 mtop"> -->
+	<!-- 		<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text">
+					<span>Basic details</span>
+				</div>
+				<mat-divider></mat-divider>
+			</mat-card-title> -->
+			<mat-card-content class="m-1">
+			
+				<div class="main-info">
+				   
+					<div class="under1"></div>
+					<!--<p class="text-muted p-line mt-1 mb-1">A8 / E56 - Innkreis Autobahn</p>-->
+					<p class="title-1st" style="background: white;" [innerHTML]="parkingdetails?.description">{{parkingdetails?.description}}</p>
+					<div class="under1"></div>
+					<p class="title-1st">Contact Person : {{(parkingdetails?.ContactPerson) ?parkingdetails?.ContactPerson: 'Not Available' }}</p>
+					<div class="under1"></div>
+					<p class="title-1st"> Road : {{(parkingdetails?.Road) ? parkingdetails?.Road: 'Not Available'}}</p>
+					<div class="under1"></div>
+					<p class="title-1st"> PostCode : {{parkingdetails?.PostCode}} {{parkingdetails?.CityName}}</p>
+					<div class="under1"></div>
+					<p class="title-1st">Telephone : 
+						{{(parkingdetails?.Telephone) ? parkingdetails?.Telephone: 'Not Available'}}
+					</p>
+					<div class="under1"></div>
+					<p class="title-1st">Fax : 
+						{{(parkingdetails?.fax) ? parkingdetails?.fax: 'Not Available'}}
+					</p>
+					<div class="under1"></div>
+				<p class="title-1st">Email :  
+						{{(parkingdetails?.Email) ? parkingdetails?.Email: 'Not Available'}}
+					</p>
+					<div class="under1"></div>
+				<p class="title-1st">Website : 
+						{{(parkingdetails?.Website) ? parkingdetails?.Website: 'Not Available'}}
+					</p>
+					<div class="under1"></div>
+					<p class="title-1st">Opening Hours : 
+						{{(parkingdetails?.openinghour) ? parkingdetails?.openinghour+' Hours Opens': 'Not Available'}}
+				</p>
+				
+				<div class="under1"></div>
+				
+				<p class="title-1st">
+				<a (click)="onmedia()" href="{{fburl}}"><i *ngIf="parkingdetails?.Facebook_url"  class="fa fa-facebook-square SMicon" aria-hidden="true"></i></a>
+				<a (click)="onmedia()" href="{{linkedurl}}"><i  *ngIf="parkingdetails?.LinkedIn_url" class="fa fa-instagram SMicon" aria-hidden="true"></i></a>
+				<a (click)="onmedia()" href="{{twitteurl}}"><i  *ngIf="parkingdetails?.Twitter_url" class="fa fa-twitter-square SMicon" aria-hidden="true"></i></a>
+				<a (click)="onmedia()" href="{{instaurl}}"><i  *ngIf="parkingdetails?.Instagram_url"  class="fa fa-linkedin-square SMicon" aria-hidden="true"></i></a>
+				</p>
+				<!-- <mdb-icon fab icon="facebook-f"></mdb-icon>  -->
+				
+				<div class="under1"></div>
+                </div> 
+			</mat-card-content>
+			<mat-card-content class="text1 servicedetail">
+			<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text bc-color">
+					<span class="after-heading">Services</span>
+				</div>
+			</mat-card-title>
+				<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 servicedetail1">
+					<div fxFlex="100" fxFlex.gt-xs="12.49"  class="mt-1 serviceimages1"  *ngFor="let parking of parkingservices; let i = index" >
+				
+						<img  data-src="{{imagepathurl}}{{parking.ServiceLogo}}" #tooltip="matTooltip"  matTooltip="{{parking.ServiceName}}" matTooltipPosition="above" class="img1 lazyload"/>
+					</div> 
+				</div>
+			</mat-card-content>
+			<mat-card-content class="text1 servicedetail">
+			<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text bc-color">
+					<span class="after-heading">Fuel cards</span>
+				</div>
+			</mat-card-title>
+				<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 servicedetail1">
+					<div fxFlex="100" fxFlex.gt-xs="12.49"  class="mt-1 serviceimages1"  *ngFor="let fuelcards of parkingfuelcards; let i = index">						
+						<img  data-src="{{imagepathurl}}{{fuelcards.FuelCardLogo}}" #tooltip="matTooltip"  matTooltip="{{fuelcards.FuelCardName}}" matTooltipPosition="above" class="img1 lazyload"/>
+					</div> 
+				</div>
+			</mat-card-content>
+			<mat-card-content class="text1 servicedetail">
+			<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text bc-color">
+					<span class="after-heading">Bank and credit cards</span>
+				</div>
+			</mat-card-title>
+				<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 servicedetail1">
+					<div fxFlex="100" fxFlex.gt-xs="12.49"  class="mt-1 serviceimages1"  *ngFor="let bankcards of parkingbankcards; let i = index">						
+						<img  data-src="{{imagepathurl}}{{bankcards.BankCardLogo}}" #tooltip="matTooltip"  matTooltip="{{bankcards.BankCardName}}" matTooltipPosition="above" class="img1 lazyload"/>
+					</div> 
+				</div>
+			</mat-card-content>
+			<mat-card-content class="text1 servicedetail">
+			<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text bc-color">
+					<span class="after-heading">Gas station</span>
+				</div>
+			</mat-card-title>
+				<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 servicedetail1">
+					<div fxFlex="100" fxFlex.gt-xs="12.49"  class="mt-1 serviceimages1"  *ngFor="let gasStations of parkinggasStations; let i = index">						
+						<img  data-src="{{imagepathurl}}{{gasStations.Logo}}" #tooltip="matTooltip"  matTooltip="{{gasStations.Name}}" matTooltipPosition="above" class="img1 lazyload"/>
+					</div> 
+				</div>
+			</mat-card-content>
+			<mat-card-content class="text1 servicedetail">
+			<mat-card-title class="mat-bg-primary m-0">
+				<div class="card-title-text bc-color">
+					<span class="after-heading">Location on map</span>
+				</div>
+			</mat-card-title>
+				<div fxLayout="row" fxLayoutWrap="wrap" class="mt-1 servicedetail1">
+					<div #map class="map" id="map" style="width:100%;height:300px; overflow:hidden !important;z-index:99999999;"></div>
+				</div>
+			</mat-card-content>
+		<!-- </mat-card> -->
+	</div>
+</div></div>
+	
+	<!-- </mat-sidenav-content> -->
+  <!-- </mat-sidenav-container> -->
+

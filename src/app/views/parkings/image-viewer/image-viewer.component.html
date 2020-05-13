@@ -1,0 +1,19 @@
+
+						<div  *ngFor="let parkingImg of parkingGallery; let i = index" class='services_img'>
+						<img class="sideimg1 img-h" [src]="imagepathurl+parkingImg.ImagePath" />
+						<!-- <img class="sideimg1 img-h" src="assets/images/sidetop.jpg"> -->
+						<!-- <img class="sideimg1" src="assets/images/designMAP-pdf.jpg"> -->
+						<!-- <img class="sideimg1 pos1" src="assets/images/side2.jpg"> -->
+						<!-- <img class="sideimg1 pos2" src="assets/images/side3.jpg"> -->
+						<!-- <img class="sideimg1 pos3" src="assets/images/side4.jpg"> -->
+						</div>
+						<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap" class=""> 
+						 <div fxFlex="100" class="mt-1">
+							 
+							  <span fxFlex></span>
+							  <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+							</div>
+							</div>
+						
+				<!-- </mat-card> -->
+				

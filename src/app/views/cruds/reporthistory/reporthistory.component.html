@@ -1,0 +1,43 @@
+<div class="m-333" *ngIf="usertype!='Organization'">
+</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="items"
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Parking Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Name }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Parking Country" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.Country }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Organization Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.orgFname }} {{ row?.orgLname }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Auditor Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.auditorFname }} {{ row?.auditorLname }}
+            </ng-template>
+          </ngx-datatable-column>
+          
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button mat-icon-button mat-sm-button color="accent" matTooltip="View Request" (click)="openPopUp(row.requestID)"><mat-icon>zoom_in</mat-icon></button>
+              <a routerLink="/generate/report/{{random}}{{row?.requestID}}" target="_blank"><button mat-icon-button mat-sm-button color="primary" matTooltip="Generate Report"><mat-icon>picture_as_pdf</mat-icon></button></a>
+              <a routerLink="/generate/certificate/{{random}}{{row?.requestID}}" target="_blank"><button mat-icon-button mat-sm-button color="primary" matTooltip="Generate Certificate"><mat-icon>receipt</mat-icon></button></a>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>

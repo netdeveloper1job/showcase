@@ -1,0 +1,59 @@
+<h1 matDialogTitle>{{data.title}}</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="wrap">
+  
+	<div fxFlex="25"  class="pr-1">
+		<mat-form-field class="full-width">
+		 <mat-label>Select Country</mat-label>									 
+		 <mat-select [formControl]="itemForm.controls['Country']" name="Country" (selectionChange)="CountryChane($event)"> 
+			<mat-option *ngFor="let country of countryArray" [value]="country.ID">
+				{{country.country}}
+			</mat-option>
+		 </mat-select>
+	</mat-form-field>								
+	</div>
+	
+	<div fxFlex="25"  class="pr-1">
+      <mat-form-field class="full-width">
+		  <mat-label>Select State</mat-label>
+		  <mat-select [(value)]="selecteduser" name="SelectState" [formControl]="itemForm.controls['SelectState']" (selectionChange)="StateChange($event)">
+				<mat-select-search #myInput focused="'true'" (keyup)="searchstate($event.target.value)" autocomplete="off" [placeholderLabel]="'Search State'"></mat-select-search>
+				<mat-divider></mat-divider>
+			 <mat-option *ngFor="let state of selectedcity" [value]="state?.ID">{{state?.StateName}}</mat-option>
+		  </mat-select>
+		</mat-form-field>
+    </div>
+		
+		<div fxFlex="25"  class="pr-1">
+      <mat-form-field class="full-width">
+		  <mat-label>Select City</mat-label>
+		  <mat-select [(value)]="selecteduser" name="State" [formControl]="itemForm.controls['SelectCity']">
+				<mat-select-search #myInput focused="'true'" (keyup)="searchcity($event.target.value)" autocomplete="off" [placeholderLabel]="'Search State'"></mat-select-search>
+				<mat-divider></mat-divider>
+			 <mat-option *ngFor="let city of cityDataArray" [value]="city?.ID">{{city?.CityName}}</mat-option>
+		  </mat-select>
+		</mat-form-field>
+    </div>
+	
+    <div fxFlex="25"  class="pr-1">
+      <mat-form-field class="full-width">
+        <input
+        matInput
+        name="PostCode"
+        [formControl]="itemForm.controls['PostCode']"
+        placeholder="PostCode">
+      </mat-form-field>
+    </div>
+	
+    
+	<div fxFlex="50"  class="pt-1 pr-1">
+      <mat-slide-toggle [formControl]="itemForm.controls['Status']">Status </mat-slide-toggle>
+    </div>
+   
+    <div fxFlex="100" class="mt-1">
+      <button mat-raised-button color="primary" [disabled]="itemForm.invalid">Save</button>
+      <span fxFlex></span>
+      <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+  </div>
+  </form>
