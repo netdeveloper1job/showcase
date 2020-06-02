@@ -44,7 +44,7 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 @NgModule({
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCRZOaFDXZkbY3PDnrvrLATJjxmytsfPcc'
+      apiKey: 'Your google map key here'
     }),
 	CommonModule,
     MatIconModule,
